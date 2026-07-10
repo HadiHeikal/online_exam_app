@@ -1,4 +1,5 @@
-import 'package:flutter/painting.dart';
+
+import 'package:flutter/material.dart';
 
 abstract class AppColors {
   static const Color success = Color(0xFF1DBF2F);

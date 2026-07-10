@@ -1,0 +1,44 @@
+import 'package:flutter/material.dart';
+import 'package:online_exam_app/core/themes/app_colors/app_colors.dart';
+
+abstract class AppTheme {
+  static ThemeData get lightAppTheme {
+    return ThemeData(
+      appBarTheme: AppBarTheme(
+        backgroundColor:  Colors.transparent
+      ),
+      scaffoldBackgroundColor: Colors.white,
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(
+          backgroundColor: AppColors.blue,
+          elevation: 0,
+          foregroundColor: Colors.white,
+          fixedSize: Size(343, 48),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(100),
+          ),
+        ),
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        border: OutlineInputBorder(
+
+          borderRadius: BorderRadius.circular(4),
+          borderSide: BorderSide(color: AppColors.black),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(4),
+          borderSide: BorderSide(color: AppColors.blue),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(4),
+          borderSide: BorderSide(color: AppColors.black),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(4),
+          borderSide: BorderSide(color: AppColors.error),
+        )
+        
+      )
+      );
+  }
+}

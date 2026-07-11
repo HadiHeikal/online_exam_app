@@ -16,7 +16,7 @@ class OnlineExamApp extends StatelessWidget {
     return MaterialApp(
       title: 'Online Exam App',
       theme: AppTheme.lightAppTheme,
-      home: const RegisterScreen(),
+      home: const RegisterView(),
     );
   }
 }

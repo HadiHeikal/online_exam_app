@@ -1,8 +1,10 @@
 import 'dart:developer';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:online_exam_app/config/base_response/base_response.dart';
+
 import 'package:online_exam_app/features/auth/domain/entities/register_entity.dart';
 import 'package:online_exam_app/features/auth/domain/use_cases/register_use_case.dart';
 import 'package:online_exam_app/features/auth/presentation/register/manager/register_state.dart';
@@ -11,6 +13,15 @@ import 'package:online_exam_app/features/auth/presentation/register/manager/regi
 class RegisterCubit extends Cubit<RegisterState> {
   RegisterUseCase registerUseCase;
   RegisterCubit(this.registerUseCase) : super(RegisterInitialState());
+
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController firstNameController = TextEditingController();
+  TextEditingController lastNameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   void register({
     required String username,

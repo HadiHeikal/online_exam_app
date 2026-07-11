@@ -1,4 +1,4 @@
-class RegisterEntity {
+class UserEntity {
   final String username;
   final String firstName;
   final String lastName;
@@ -9,7 +9,7 @@ class RegisterEntity {
   final bool isVerified;
   final DateTime createdAt;
 
-  RegisterEntity({
+  UserEntity({
     required this.username,
     required this.firstName,
     required this.lastName,
@@ -20,4 +20,9 @@ class RegisterEntity {
     required this.isVerified,
     required this.createdAt,
   });
+
+  @override
+  String toString() {
+    return 'RegisterEntity(username: $username, firstName: $firstName, lastName: $lastName, email: $email, phone: $phone, id: $id, role: $role, isVerified: $isVerified, createdAt: $createdAt)';
+  }
 }

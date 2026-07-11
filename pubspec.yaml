@@ -34,7 +34,9 @@ dependencies:
   json_annotation: ^4.9.0
   dio: ^5.10.0
   injectable: ^3.0.0
+  cherry_toast: ^1.13.0
   get_it: ^9.2.1
+  flutter_bloc: ^9.1.1
   
 
   # The following adds the Cupertino Icons font to your application.

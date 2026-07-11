@@ -39,7 +39,7 @@ class User {
 
   Map<String, dynamic> toJson() => _$UserToJson(this);
 
-  RegisterEntity toEntity() => RegisterEntity(
+  UserEntity toEntity() => UserEntity(
     username: username??"",
     firstName: firstName??"",
     lastName: lastName??"",

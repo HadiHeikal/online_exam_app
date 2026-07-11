@@ -9,7 +9,7 @@ class RegisterUseCase {
 
   RegisterUseCase(this.authRepo);
 
- Future<BaseResponse<RegisterEntity>> call({
+ Future<BaseResponse<UserEntity>> call({
     required String username,
     required String firstName,
     required String lastName,
@@ -18,7 +18,7 @@ class RegisterUseCase {
     required String rePassword,
     required String phone,
   })async{ {
- BaseResponse<RegisterEntity> myRegisterEntity =  await authRepo.register(
+ BaseResponse<UserEntity> myRegisterEntity =  await authRepo.register(
       username: username,
       firstName: firstName,
       lastName: lastName,

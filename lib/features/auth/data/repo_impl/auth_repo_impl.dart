@@ -11,7 +11,7 @@ class AuthRepoImpl implements AuthRepo {
   AuthRemoteDataSource authRemoteDataSource;
   AuthRepoImpl(this.authRemoteDataSource);
   @override
-  Future<BaseResponse<RegisterEntity>> register({
+  Future<BaseResponse<UserEntity>> register({
     required String username,
     required String firstName,
     required String lastName,
@@ -34,11 +34,11 @@ class AuthRepoImpl implements AuthRepo {
         );
     switch (myRegisterResponce) {
       case SuccessResponse<RegisterResponceModel>():
-      RegisterEntity myRegisterEntity =  myRegisterResponce.data.user!.toEntity();
-      return SuccessResponse<RegisterEntity>(myRegisterEntity);
+      UserEntity myRegisterEntity =  myRegisterResponce.data.user!.toEntity();
+      return SuccessResponse<UserEntity>(myRegisterEntity);
      
       case ErrorResponse<RegisterResponceModel>():
-        return ErrorResponse<RegisterEntity>(myRegisterResponce.error);
+        return ErrorResponse<UserEntity>(myRegisterResponce.error);
     }
   }
 }

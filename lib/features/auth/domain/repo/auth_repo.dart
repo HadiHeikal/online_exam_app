@@ -4,7 +4,7 @@ import 'package:online_exam_app/features/auth/domain/entities/register_entity.da
 abstract class AuthRepo {
 
 
- Future<BaseResponse<RegisterEntity>> register({
+ Future<BaseResponse<UserEntity>> register({
     required String username,
     required String firstName,
     required String lastName,

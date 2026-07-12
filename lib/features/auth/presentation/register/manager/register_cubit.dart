@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:online_exam_app/config/base_response/base_response.dart';
+import 'package:online_exam_app/features/auth/domain/entities/auth_entity.dart';
 
-import 'package:online_exam_app/features/auth/domain/entities/register_entity.dart';
 import 'package:online_exam_app/features/auth/domain/use_cases/register_use_case.dart';
 import 'package:online_exam_app/features/auth/presentation/register/manager/register_state.dart';
 
@@ -33,7 +33,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     required String phone,
   }) async {
     emit(RegisterLoadingState());
-    BaseResponse<UserEntity> myRegisterEntity = await registerUseCase.call(
+    BaseResponse<AuthEntity> myRegisterEntity = await registerUseCase.call(
       username: username,
       firstName: firstName,
       lastName: lastName,

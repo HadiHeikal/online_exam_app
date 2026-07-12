@@ -14,6 +14,7 @@ class OnlineExamApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Online Exam App',
       theme: AppTheme.lightAppTheme,
       home: const RegisterView(),

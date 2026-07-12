@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:online_exam_app/features/auth/domain/entities/register_entity.dart';
+import 'package:online_exam_app/features/auth/domain/entities/auth_entity.dart';
 part 'user_model.g.dart';
 
 @JsonSerializable()
@@ -39,7 +39,7 @@ class User {
 
   Map<String, dynamic> toJson() => _$UserToJson(this);
 
-  UserEntity toEntity() => UserEntity(
+  AuthEntity toEntity() => AuthEntity(
     username: username??"",
     firstName: firstName??"",
     lastName: lastName??"",

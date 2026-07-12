@@ -232,7 +232,7 @@ class RegisterWidget extends StatelessWidget {
                                 color: Colors.white,
                               ),
                             )
-                          : Text('Signup', style: AppTextStyles.regular16),
+                          : Text('Signup', style: AppTextStyles.medium16),
                     );
                   },
                 ),
@@ -241,13 +241,22 @@ class RegisterWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Already have an account?',
+                      'Already have an account?  ',
                       style: AppTextStyles.regular16,
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return LoginView();
+                            },
+                          ),
+                        );
+                      },
                       child: Text(
-                        '  Login',
+                        'Login',
                         style: AppTextStyles.regular16.copyWith(
                           color: Colors.blue,
                           decoration: TextDecoration.underline,

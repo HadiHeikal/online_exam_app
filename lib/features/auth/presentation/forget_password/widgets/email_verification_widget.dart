@@ -4,7 +4,7 @@ import 'package:online_exam_app/core/constants/ui_strings.dart';
 import 'package:online_exam_app/core/themes/app_%20text_styles/app_text_styles.dart';
 import 'package:online_exam_app/core/themes/app_colors/app_colors.dart';
 import 'package:online_exam_app/core/widgets/app_text_form_field_widget.dart';
-import 'package:online_exam_app/features/auth/presentation/forget_password/manager/forger_password_cubit.dart';
+import 'package:online_exam_app/features/auth/presentation/forget_password/manager/forget_password_cubit.dart';
 
 class EmailVerificationWidget extends StatelessWidget {
   const EmailVerificationWidget({super.key});

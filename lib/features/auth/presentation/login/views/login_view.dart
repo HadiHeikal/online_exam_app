@@ -14,6 +14,7 @@ class LoginView extends StatelessWidget {
       create: (context) => getIt.get<LoginCubit>(),
       child: LoginWidget(),
       //Try from alfy
+      //secound time
     );
   }
 }

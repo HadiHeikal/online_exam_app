@@ -15,6 +15,7 @@ class RegisterView extends StatelessWidget {
       child: RegisterWidget(),
       //from vscode 
       //try
+      //try2
     );
   }
 }

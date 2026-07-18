@@ -13,6 +13,7 @@ class RegisterView extends StatelessWidget {
     return BlocProvider<RegisterCubit>(
       create: (context) => getIt.get<RegisterCubit>(),
       child: RegisterWidget(),
+      //try
     );
   }
 }

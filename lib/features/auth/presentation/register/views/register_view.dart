@@ -14,6 +14,7 @@ class RegisterView extends StatelessWidget {
       create: (context) => getIt.get<RegisterCubit>(),
       child: RegisterWidget(),
       //try
+      //try2
     );
   }
 }

@@ -5,27 +5,47 @@ import 'package:online_exam_app/config/base_response/base_response.dart';
 import 'package:online_exam_app/features/auth/domain/entities/auth_entity.dart';
 
 import 'package:online_exam_app/features/auth/domain/use_cases/login_use_case.dart';
+import 'package:online_exam_app/features/auth/presentation/login/manager/cubit/login_event.dart';
 
 part 'login_state.dart';
 
 @injectable
 class LoginCubit extends Cubit<LoginState> {
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  bool isChecked = false;
-  LoginUseCase loginUseCase;
-  LoginCubit(this.loginUseCase) : super(LoginInitialSate());
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  bool _isChecked = false;
+  LoginUseCase _loginUseCase;
+  LoginCubit(this._loginUseCase) : super(LoginInitialSate());
 
-  void changeCheckBox(bool value) {
-    isChecked = value;
+  GlobalKey<FormState> get formKey => _formKey;
+  TextEditingController get emailController => _emailController;
+  TextEditingController get passwordController => _passwordController;
+  bool get isChecked => _isChecked;
+
+
+  void doEvent(LoginEvent event) {
+    switch (event) {
+      
+      case Authloginevent():
+        _login(
+          email: _emailController.text,
+          password: _passwordController.text,
+        );
+      case CheckBox():
+        _changeCheckBox(_isChecked);
+    }
+  }
+
+  void _changeCheckBox(bool value) {
+    _isChecked = !value;
     emit(CheckBoxState());
   }
 
-  Future<void> login({required String email, required String password}) async {
+  Future<void> _login({required String email, required String password}) async {
     emit(LoginLoadingSate());
 
-    BaseResponse<AuthEntity> loginEntity = await loginUseCase.call(
+    BaseResponse<AuthEntity> loginEntity = await _loginUseCase.call(
       email: email,
       password: password,
     );

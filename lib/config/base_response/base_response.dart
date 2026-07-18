@@ -13,7 +13,7 @@ class ErrorResponse<T> extends BaseResponse<T> {
   Exception error;
   String errorMessage;
   ErrorResponse(this.error)
-    : errorMessage = Handelerrorexception().handelErrorexception(error);
+    : errorMessage = Handelerrorexception.handelErrorexception(error);
 }
 
 // String handelErrorexception(Exception error) {

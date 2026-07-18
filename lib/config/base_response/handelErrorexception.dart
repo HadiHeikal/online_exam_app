@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:online_exam_app/config/base_response/error_handling.dart';
 
- class Handelerrorexception {
+ abstract class Handelerrorexception {
 
-  String handelErrorexception(Exception error) {
+ static String handelErrorexception(Exception error) {
   if (error is DioException) {
     switch (error.type) {
       case DioExceptionType.sendTimeout:

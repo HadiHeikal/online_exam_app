@@ -103,6 +103,24 @@ class _AuthApiClient implements AuthApiClient {
 
     return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
+  
+  @override
+  Future<MessageResponseModel> forgotPassword(Map<String, dynamic> body) {
+    // TODO: implement forgotPassword
+    throw UnimplementedError();
+  }
+  
+  @override
+  Future<MessageResponseModel> resetPassword(Map<String, dynamic> body) {
+    // TODO: implement resetPassword
+    throw UnimplementedError();
+  }
+  
+  @override
+  Future<MessageResponseModel> verifyResetCode(Map<String, dynamic> body) {
+    // TODO: implement verifyResetCode
+    throw UnimplementedError();
+  }
 }
 
 // dart format on

@@ -8,7 +8,7 @@ import 'package:online_exam_app/core/themes/app_%20text_styles/app_text_styles.d
 import 'package:online_exam_app/core/themes/app_colors/app_colors.dart';
 import 'package:online_exam_app/core/widgets/app_text_form_field_widget.dart';
 import 'package:online_exam_app/features/auth/presentation/login/manager/cubit/login_cubit.dart';
-import 'package:online_exam_app/features/auth/presentation/login/manager/cubit/login_event.dart';
+import 'package:online_exam_app/features/auth/presentation/forget_password/views/forget_password_view.dart';
 
 class LoginWidget extends StatelessWidget {
   const LoginWidget({super.key});
@@ -88,7 +88,12 @@ class LoginWidget extends StatelessWidget {
                   Spacer(),
                   InkWell(
                     onTap: () {
-                      //but here the navigator to forget password;
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ForgetPasswordView(),
+                        ),
+                      );
                     },
                     child: Text(
                       'Forget password?',

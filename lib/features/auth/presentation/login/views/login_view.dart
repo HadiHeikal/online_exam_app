@@ -13,6 +13,7 @@ class LoginView extends StatelessWidget {
     return BlocProvider<LoginCubit>(
       create: (context) => getIt.get<LoginCubit>(),
       child: LoginWidget(),
+      //Try from alfy
     );
   }
 }

@@ -20,8 +20,14 @@ import '../../features/auth/data/data_source/remote/auth_remote_data_source.dart
     as _i548;
 import '../../features/auth/data/repo_impl/auth_repo_impl.dart' as _i279;
 import '../../features/auth/domain/repo/auth_repo.dart' as _i170;
+import '../../features/auth/domain/use_cases/change_password_use_case.dart'
+    as _i273;
+import '../../features/auth/domain/use_cases/forget_password_use_case.dart'
+    as _i483;
 import '../../features/auth/domain/use_cases/login_use_case.dart' as _i1038;
 import '../../features/auth/domain/use_cases/register_use_case.dart' as _i1010;
+import '../../features/auth/domain/use_cases/verify_reset_code_use_case.dart'
+    as _i449;
 import '../../features/auth/presentation/login/manager/cubit/login_cubit.dart'
     as _i370;
 import '../../features/auth/presentation/register/manager/register_cubit.dart'
@@ -46,11 +52,20 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i170.AuthRepo>(
       () => _i279.AuthRepoImpl(gh<_i548.AuthRemoteDataSource>()),
     );
+    gh.lazySingleton<_i273.ChangePasswordUseCase>(
+      () => _i273.ChangePasswordUseCase(gh<_i170.AuthRepo>()),
+    );
+    gh.lazySingleton<_i483.ForgetPasswordUseCase>(
+      () => _i483.ForgetPasswordUseCase(gh<_i170.AuthRepo>()),
+    );
     gh.lazySingleton<_i1038.LoginUseCase>(
       () => _i1038.LoginUseCase(gh<_i170.AuthRepo>()),
     );
     gh.lazySingleton<_i1010.RegisterUseCase>(
       () => _i1010.RegisterUseCase(gh<_i170.AuthRepo>()),
+    );
+    gh.lazySingleton<_i449.VerifyResetCodeUseCase>(
+      () => _i449.VerifyResetCodeUseCase(gh<_i170.AuthRepo>()),
     );
     gh.factory<_i370.LoginCubit>(
       () => _i370.LoginCubit(gh<_i1038.LoginUseCase>()),

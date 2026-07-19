@@ -77,6 +77,96 @@ class _AuthApiClient implements AuthApiClient {
     return _value;
   }
 
+  @override
+  Future<MessageResponseModel> forgotPassword(
+    ForgetPasswordRequest forgetPasswordRequest,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(forgetPasswordRequest.toJson());
+    final _options = _setStreamType<MessageResponseModel>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/forgotPassword',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late MessageResponseModel _value;
+    try {
+      _value = MessageResponseModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<MessageResponseModel> verifyResetCode(
+    VerifyResetCodeRequest verifyResetCodeRequest,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(verifyResetCodeRequest.toJson());
+    final _options = _setStreamType<MessageResponseModel>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/verifyResetCode',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late MessageResponseModel _value;
+    try {
+      _value = MessageResponseModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<MessageResponseModel> resetPassword(
+    ResetPasswordRequest resetPasswordRequest,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(resetPasswordRequest.toJson());
+    final _options = _setStreamType<MessageResponseModel>(
+      Options(method: 'PUT', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/resetPassword',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late MessageResponseModel _value;
+    try {
+      _value = MessageResponseModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    return _value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||
@@ -102,24 +192,6 @@ class _AuthApiClient implements AuthApiClient {
     }
 
     return Uri.parse(dioBaseUrl).resolveUri(url).toString();
-  }
-  
-  @override
-  Future<MessageResponseModel> forgotPassword(Map<String, dynamic> body) {
-    // TODO: implement forgotPassword
-    throw UnimplementedError();
-  }
-  
-  @override
-  Future<MessageResponseModel> resetPassword(Map<String, dynamic> body) {
-    // TODO: implement resetPassword
-    throw UnimplementedError();
-  }
-  
-  @override
-  Future<MessageResponseModel> verifyResetCode(Map<String, dynamic> body) {
-    // TODO: implement verifyResetCode
-    throw UnimplementedError();
   }
 }
 

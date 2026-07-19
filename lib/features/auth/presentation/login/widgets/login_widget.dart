@@ -9,6 +9,8 @@ import 'package:online_exam_app/core/themes/app_colors/app_colors.dart';
 import 'package:online_exam_app/core/widgets/app_text_form_field_widget.dart';
 import 'package:online_exam_app/features/auth/presentation/login/manager/cubit/login_cubit.dart';
 import 'package:online_exam_app/features/auth/presentation/forget_password/views/forget_password_view.dart';
+import 'package:online_exam_app/features/auth/presentation/login/manager/cubit/login_event.dart';
+import 'package:online_exam_app/features/auth/presentation/login/manager/cubit/login_state.dart';
 
 class LoginWidget extends StatelessWidget {
   const LoginWidget({super.key});
@@ -67,7 +69,7 @@ class LoginWidget extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      BlocBuilder<LoginCubit, LoginState>(
+                      BlocBuilder<LoginCubit, AuthState>(
                         builder: (context, state) {
                           return Checkbox(
                             shape: RoundedRectangleBorder(
@@ -106,9 +108,9 @@ class LoginWidget extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 48),
-              BlocConsumer<LoginCubit, LoginState>(
+              BlocConsumer<LoginCubit, AuthState>(
                 listener: (context, state) {
-                  if (state is LoginSuccessSate) {
+                  if (state.baseAuthState.data != null) {
                     CherryToast.success(
                       toastPosition: Position.bottom,
                       animationCurve: Curves.easeInCubic,
@@ -120,8 +122,8 @@ class LoginWidget extends StatelessWidget {
                         style: TextStyle(color: AppColors.success),
                       ),
                     ).show(context);
-                    log(state.authEntity.createdAt.toString());
-                  } else if (state is LoginErrorSate) {
+                    log(state.baseAuthState.data!.email.toString());
+                  } else if (state.baseAuthState.errorMesage.isNotEmpty) {
                     CherryToast.error(
                       animationType: AnimationType.fromBottom,
                       animationDuration: const Duration(milliseconds: 500),
@@ -129,14 +131,14 @@ class LoginWidget extends StatelessWidget {
                       animationCurve: Curves.easeOutCubic,
                       toastPosition: Position.bottom,
                       title: Text(
-                        state.error,
+                        state.baseAuthState.errorMesage,
                         style: TextStyle(color: AppColors.error),
                       ),
                     ).show(context);
                   }
                 },
                 builder: (context, state) {
-                  bool isLoading = state is LoginLoadingSate;
+                  bool isLoading = state.baseAuthState.isLoading;
                   return TextButton(
                     onPressed: isLoading
                         ? null

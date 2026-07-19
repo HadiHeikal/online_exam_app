@@ -12,11 +12,7 @@ class MessageResponseModel {
   @JsonKey(name: "statusMsg")
   String? statusMsg;
 
-  MessageResponseModel({
-    this.message,
-    this.info,
-    this.statusMsg,
-  });
+  MessageResponseModel({this.message, this.info, this.statusMsg});
 
   factory MessageResponseModel.fromJson(Map<String, dynamic> json) =>
       _$MessageResponseModelFromJson(json);
@@ -24,9 +20,6 @@ class MessageResponseModel {
   Map<String, dynamic> toJson() => _$MessageResponseModelToJson(this);
 
   MessageEntity toEntity() {
-    return MessageEntity(
-      message: message ?? '',
-      info: info,
-    );
+    return MessageEntity(message: message ?? '', info: info);
   }
 }

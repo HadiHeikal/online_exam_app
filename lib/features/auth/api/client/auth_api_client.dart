@@ -2,11 +2,11 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
 import 'package:online_exam_app/core/constants/api_stings.dart';
+import 'package:online_exam_app/features/auth/data/models/forget_password_models/forget_password_request.dart';
+import 'package:online_exam_app/features/auth/data/models/forget_password_models/reset_password_request.dart';
+import 'package:online_exam_app/features/auth/data/models/forget_password_models/verify_reset_code_request.dart';
 import 'package:online_exam_app/features/auth/data/models/login_request_model.dart';
 import 'package:online_exam_app/features/auth/data/models/login_response_model.dart';
-import 'package:online_exam_app/features/auth/data/models/forget_password_models/forget_password_request.dart';
-import 'package:online_exam_app/features/auth/data/models/forget_password_models/verify_reset_code_request.dart';
-import 'package:online_exam_app/features/auth/data/models/forget_password_models/reset_password_request.dart';
 import 'package:online_exam_app/features/auth/data/models/forget_password_models/message_response_model.dart';
 import 'package:online_exam_app/features/auth/data/models/register_request_model.dart';
 import 'package:online_exam_app/features/auth/data/models/register_responce_model.dart';
@@ -26,22 +26,20 @@ abstract class AuthApiClient {
   );
 
   @POST(ApiStrings.loginEndPoint)
-  Future<LoginResponseModel> login(
-    @Body() LoginRequestModel loginrequestModel,
-  );
+  Future<LoginResponseModel> login(@Body() LoginRequestModel loginrequestModel);
 
   @POST(ApiStrings.forgotPasswordEndPoint)
   Future<MessageResponseModel> forgotPassword(
-    @Body() ForgetPasswordRequest forgetPasswordRequest,
+    @Body() ForgetPasswordRequest request,
   );
 
   @POST(ApiStrings.verifyResetCodeEndPoint)
   Future<MessageResponseModel> verifyResetCode(
-    @Body() VerifyResetCodeRequest verifyResetCodeRequest,
+    @Body() VerifyResetCodeRequest request,
   );
 
   @PUT(ApiStrings.resetPasswordEndPoint)
   Future<MessageResponseModel> resetPassword(
-    @Body() ResetPasswordRequest resetPasswordRequest,
+    @Body() ResetPasswordRequest request,
   );
 }

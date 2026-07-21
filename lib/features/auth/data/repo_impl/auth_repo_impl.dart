@@ -68,8 +68,8 @@ class AuthRepoImpl implements AuthRepo {
   Future<BaseResponse<MessageEntity>> forgotPassword({
     required String email,
   }) async {
-    BaseResponse<MessageResponseModel> response =
-        await authRemoteDataSource.forgotPassword(email);
+    BaseResponse<MessageResponseModel> response = await authRemoteDataSource
+        .forgotPassword(email);
     switch (response) {
       case SuccessResponse<MessageResponseModel>():
         return SuccessResponse<MessageEntity>(response.data.toEntity());
@@ -82,8 +82,8 @@ class AuthRepoImpl implements AuthRepo {
   Future<BaseResponse<MessageEntity>> verifyResetCode({
     required String resetCode,
   }) async {
-    BaseResponse<MessageResponseModel> response =
-        await authRemoteDataSource.verifyResetCode(resetCode);
+    BaseResponse<MessageResponseModel> response = await authRemoteDataSource
+        .verifyResetCode(resetCode);
     switch (response) {
       case SuccessResponse<MessageResponseModel>():
         return SuccessResponse<MessageEntity>(response.data.toEntity());
@@ -97,8 +97,8 @@ class AuthRepoImpl implements AuthRepo {
     required String email,
     required String newPassword,
   }) async {
-    BaseResponse<MessageResponseModel> response =
-        await authRemoteDataSource.resetPassword(email, newPassword);
+    BaseResponse<MessageResponseModel> response = await authRemoteDataSource
+        .resetPassword(email, newPassword);
     switch (response) {
       case SuccessResponse<MessageResponseModel>():
         return SuccessResponse<MessageEntity>(response.data.toEntity());

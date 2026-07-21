@@ -5,7 +5,10 @@ import 'package:online_exam_app/features/auth/api/client/auth_api_client.dart';
 import 'package:online_exam_app/features/auth/data/data_source/remote/auth_remote_data_source.dart';
 import 'package:online_exam_app/features/auth/data/models/login_request_model.dart';
 import 'package:online_exam_app/features/auth/data/models/login_response_model.dart';
-import 'package:online_exam_app/features/auth/data/models/message_response_model.dart';
+import 'package:online_exam_app/features/auth/data/models/forget_password_models/forget_password_request.dart';
+import 'package:online_exam_app/features/auth/data/models/forget_password_models/verify_reset_code_request.dart';
+import 'package:online_exam_app/features/auth/data/models/forget_password_models/reset_password_request.dart';
+import 'package:online_exam_app/features/auth/data/models/forget_password_models/message_response_model.dart';
 import 'package:online_exam_app/features/auth/data/models/register_request_model.dart';
 import 'package:online_exam_app/features/auth/data/models/register_responce_model.dart';
 
@@ -48,7 +51,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   ) async {
     try {
       MessageResponseModel response = await authApiClient.forgotPassword(
-        {'email': email},
+        ForgetPasswordRequest(email: email),
       );
       return SuccessResponse<MessageResponseModel>(response);
     } on Exception catch (e) {
@@ -62,7 +65,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   ) async {
     try {
       MessageResponseModel response = await authApiClient.verifyResetCode(
-        {'resetCode': resetCode},
+        VerifyResetCodeRequest(resetCode: resetCode),
       );
       return SuccessResponse<MessageResponseModel>(response);
     } on Exception catch (e) {
@@ -77,7 +80,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   ) async {
     try {
       MessageResponseModel response = await authApiClient.resetPassword(
-        {'email': email, 'newPassword': newPassword},
+        ResetPasswordRequest(email: email, newPassword: newPassword),
       );
       return SuccessResponse<MessageResponseModel>(response);
     } on Exception catch (e) {

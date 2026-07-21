@@ -3,7 +3,7 @@ import 'package:online_exam_app/config/base_response/base_response.dart';
 import 'package:online_exam_app/features/auth/data/data_source/remote/auth_remote_data_source.dart';
 import 'package:online_exam_app/features/auth/data/models/login_request_model.dart';
 import 'package:online_exam_app/features/auth/data/models/login_response_model.dart';
-import 'package:online_exam_app/features/auth/data/models/message_response_model.dart';
+import 'package:online_exam_app/features/auth/data/models/forget_password_models/message_response_model.dart';
 import 'package:online_exam_app/features/auth/data/models/register_request_model.dart';
 import 'package:online_exam_app/features/auth/data/models/register_responce_model.dart';
 import 'package:online_exam_app/features/auth/domain/entities/auth_entity.dart';

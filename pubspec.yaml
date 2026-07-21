@@ -31,7 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
   retrofit: ^4.9.0
-  json_annotation: ^4.9.0
+  json_annotation: ^4.12.0
   dio: ^5.10.0
   injectable: ^3.0.0
   cherry_toast: ^1.13.0

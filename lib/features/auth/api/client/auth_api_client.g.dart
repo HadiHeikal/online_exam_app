@@ -79,13 +79,13 @@ class _AuthApiClient implements AuthApiClient {
 
   @override
   Future<MessageResponseModel> forgotPassword(
-    ForgetPasswordRequest forgetPasswordRequest,
+    ForgetPasswordRequest request,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(forgetPasswordRequest.toJson());
+    _data.addAll(request.toJson());
     final _options = _setStreamType<MessageResponseModel>(
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
@@ -109,13 +109,13 @@ class _AuthApiClient implements AuthApiClient {
 
   @override
   Future<MessageResponseModel> verifyResetCode(
-    VerifyResetCodeRequest verifyResetCodeRequest,
+    VerifyResetCodeRequest request,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(verifyResetCodeRequest.toJson());
+    _data.addAll(request.toJson());
     final _options = _setStreamType<MessageResponseModel>(
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
@@ -139,13 +139,13 @@ class _AuthApiClient implements AuthApiClient {
 
   @override
   Future<MessageResponseModel> resetPassword(
-    ResetPasswordRequest resetPasswordRequest,
+    ResetPasswordRequest request,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(resetPasswordRequest.toJson());
+    _data.addAll(request.toJson());
     final _options = _setStreamType<MessageResponseModel>(
       Options(method: 'PUT', headers: _headers, extra: _extra)
           .compose(

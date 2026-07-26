@@ -28,6 +28,8 @@ import '../../features/auth/domain/use_cases/login_use_case.dart' as _i1038;
 import '../../features/auth/domain/use_cases/register_use_case.dart' as _i1010;
 import '../../features/auth/domain/use_cases/verify_reset_code_use_case.dart'
     as _i449;
+import '../../features/auth/presentation/forget_password/manager/forget_password_cubit.dart'
+    as _i332;
 import '../../features/auth/presentation/login/manager/cubit/login_cubit.dart'
     as _i370;
 import '../../features/auth/presentation/register/manager/register_cubit.dart'
@@ -72,6 +74,13 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i784.RegisterCubit>(
       () => _i784.RegisterCubit(gh<_i1010.RegisterUseCase>()),
+    );
+    gh.factory<_i332.ForgetPasswordCubit>(
+      () => _i332.ForgetPasswordCubit(
+        gh<_i483.ForgetPasswordUseCase>(),
+        gh<_i449.VerifyResetCodeUseCase>(),
+        gh<_i273.ChangePasswordUseCase>(),
+      ),
     );
     return this;
   }

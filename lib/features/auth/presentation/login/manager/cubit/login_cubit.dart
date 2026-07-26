@@ -77,7 +77,8 @@ class LoginCubit extends Cubit<AuthState> {
   TextEditingController _passwordController = TextEditingController();
   bool _isChecked = false;
   LoginUseCase _loginUseCase;
-  LoginCubit(this._loginUseCase) : super(AuthState(baseAuthState: BaseAuthState()));
+  LoginCubit(this._loginUseCase)
+    : super(AuthState(baseAuthState: BaseAuthState()));
 
   GlobalKey<FormState> get formKey => _formKey;
   TextEditingController get emailController => _emailController;
@@ -106,7 +107,11 @@ class LoginCubit extends Cubit<AuthState> {
   }
 
   Future<void> _login({required String email, required String password}) async {
-    emit(state.copyWith(baseAuthState: state.baseAuthState.copyWith(isLoading: true)));
+    emit(
+      state.copyWith(
+        baseAuthState: state.baseAuthState.copyWith(isLoading: true),
+      ),
+    );
 
     BaseResponse<AuthEntity> loginEntity = await _loginUseCase.call(
       email: email,
@@ -115,11 +120,25 @@ class LoginCubit extends Cubit<AuthState> {
     switch (loginEntity) {
       case SuccessResponse<AuthEntity>():
         // emit(LoginSuccessSate(loginEntity.data));
-        emit( state.copyWith(baseAuthState: state.baseAuthState.copyWith(isLoading: false,data: loginEntity.data)));
+        emit(
+          state.copyWith(
+            baseAuthState: state.baseAuthState.copyWith(
+              isLoading: false,
+              data: loginEntity.data,
+            ),
+          ),
+        );
         break;
       case ErrorResponse<AuthEntity>():
         // emit(LoginErrorSate(loginEntity.errorMessage));
-        emit( state.copyWith(baseAuthState: state.baseAuthState.copyWith(isLoading: false,errorMesage: loginEntity.errorMessage)));
+        emit(
+          state.copyWith(
+            baseAuthState: state.baseAuthState.copyWith(
+              isLoading: false,
+              errorMesage: loginEntity.errorMessage,
+            ),
+          ),
+        );
         break;
     }
   }

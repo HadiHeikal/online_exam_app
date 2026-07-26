@@ -20,7 +20,7 @@ class OtpInputWidget extends StatefulWidget {
 class _OtpInputWidgetState extends State<OtpInputWidget> {
   late List<TextEditingController> _controllers;
   late List<FocusNode> _focusNodes;
-  static const int _otpLength = 4;
+  static const int _otpLength = 6;
 
   @override
   void initState() {
@@ -51,8 +51,8 @@ class _OtpInputWidgetState extends State<OtpInputWidget> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: List.generate(_otpLength, (index) {
         return SizedBox(
-          width: 68,
-          height: 68,
+          width: 48,
+          height: 48,
           child: TextFormField(
             controller: _controllers[index],
             focusNode: _focusNodes[index],

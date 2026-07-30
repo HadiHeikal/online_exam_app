@@ -229,7 +229,7 @@ class RegisterWidget extends StatelessWidget {
                       child: isLoading
                           ? Center(
                               child: const CircularProgressIndicator(
-                                color: Colors.white,
+                                color: AppColors.white,
                               ),
                             )
                           : Text('Signup', style: AppTextStyles.regular16),
@@ -249,7 +249,7 @@ class RegisterWidget extends StatelessWidget {
                       child: Text(
                         '  Login',
                         style: AppTextStyles.regular16.copyWith(
-                          color: Colors.blue,
+                          color: AppColors.blue,
                           decoration: TextDecoration.underline,
                         ),
                       ),

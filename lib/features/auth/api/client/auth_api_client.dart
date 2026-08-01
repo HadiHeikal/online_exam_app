@@ -29,6 +29,7 @@ abstract class AuthApiClient {
   Future<LoginResponseModel> login(@Body() LoginRequestModel loginrequestModel);
 
   @POST(ApiStrings.forgotPasswordEndPoint)
+
   Future<MessageResponseModel> forgotPassword(
     @Body() ForgetPasswordRequest request,
   );

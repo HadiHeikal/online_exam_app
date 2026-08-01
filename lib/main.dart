@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:online_exam_app/config/di/di.dart';
 import 'package:online_exam_app/core/themes/app_theme/app_theme.dart';
-import 'package:online_exam_app/features/auth/presentation/register/views/register_view.dart';
+import 'package:online_exam_app/features/auth/presentation/login/views/login_view.dart';
 
 void main() {
   configureDependencies();
@@ -17,7 +17,22 @@ class OnlineExamApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Online Exam App',
       theme: AppTheme.lightAppTheme,
-      home: const RegisterView(),
+      home: LoginView(),
     );
   }
 }
+
+
+/*
+BlocProvider<ForgetPasswordCubit>(
+        create: (_) => getIt.get<ForgetPasswordCubit>(),
+        child: const OtpVerificationView(),
+      ),
+ */
+
+/*
+BlocProvider<ForgetPasswordCubit>(
+        create: (_) => getIt.get<ForgetPasswordCubit>(),
+        child: const ResetPasswordView(),
+      ),
+ */

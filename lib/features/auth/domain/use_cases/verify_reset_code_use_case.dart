@@ -4,13 +4,14 @@ import 'package:online_exam_app/features/auth/domain/entities/message_entity.dar
 import 'package:online_exam_app/features/auth/domain/repo/auth_repo.dart';
 
 @lazySingleton
-class ForgetPasswordUseCase {
+class VerifyResetCodeUseCase {
   AuthRepo authRepo;
-  ForgetPasswordUseCase(this.authRepo);
+  VerifyResetCodeUseCase(this.authRepo);
 
-  Future<BaseResponse<MessageEntity>> call({required String email}) async {
+  Future<BaseResponse<MessageEntity>> call(
+      {required String resetCode}) async {
     BaseResponse<MessageEntity> result =
-        await authRepo.forgotPassword(email: email);
+        await authRepo.verifyResetCode(resetCode: resetCode);
     return result;
   }
 }

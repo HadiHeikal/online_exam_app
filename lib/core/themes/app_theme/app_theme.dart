@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:online_exam_app/core/themes/app_%20text_styles/app_text_styles.dart';
 import 'package:online_exam_app/core/themes/app_colors/app_colors.dart';
+import 'package:online_exam_app/core/themes/app_colors/app_colors_extension.dart';
 
 abstract class AppTheme {
   static ThemeData get lightAppTheme {
     return ThemeData(
+      extensions: const [AppColorsExtension.light],
       appBarTheme: AppBarTheme(backgroundColor: Colors.transparent),
       scaffoldBackgroundColor: Colors.white,
       textButtonTheme: TextButtonThemeData(

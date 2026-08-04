@@ -1,26 +1,7 @@
 import 'package:online_exam_app/config/base_response/base_response.dart';
+import 'package:online_exam_app/features/auth/domain/entities/params/params/register_params.dart';
 import 'package:online_exam_app/features/auth/domain/entities/register_entity.dart';
 
-abstract class AuthRepo {
-
-
- Future<BaseResponse<UserEntity>> register({
-    required String username,
-    required String firstName,
-    required String lastName,
-    required String email,
-    required String password,
-    required String rePassword,
-    required String phone,
-  });
-
-
-
-
-
-
-
-
-
-
+abstract interface class AuthRepo {
+  Future<BaseResponse<UserEntity>> register(RegisterParams registerParams);
 }

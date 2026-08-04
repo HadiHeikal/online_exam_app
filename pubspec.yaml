@@ -37,6 +37,7 @@ dependencies:
   cherry_toast: ^1.13.0
   get_it: ^9.2.1
   flutter_bloc: ^9.1.1
+  equatable: ^2.1.0
   
 
   # The following adds the Cupertino Icons font to your application.

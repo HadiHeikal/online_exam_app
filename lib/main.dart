@@ -1,17 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:online_exam_app/core/themes/app_theme/app_theme.dart';
-import 'package:online_exam_app/features/auth/presentation/login/views/login_view.dart';
+import 'package:online_exam_app/config/routing/app_router.dart';
+import 'package:online_exam_app/online_exam_app.dart';
 
 void main() {
-  runApp(const OnlineExamApp());
+  runApp(OnlineExamApp(appRouter: AppRouter()));
 }
-
-class OnlineExamApp extends StatelessWidget {
-  const OnlineExamApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(title: 'Online Exam App',theme: AppTheme.lightAppTheme, home: const LoginView());
-  }
-}
-

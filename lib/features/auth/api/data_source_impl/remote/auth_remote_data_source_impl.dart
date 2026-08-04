@@ -1,5 +1,5 @@
 import 'package:injectable/injectable.dart';
-import 'package:online_exam_app/config/base_response/base_response.dart';
+import 'package:online_exam_app/config/base/base_response.dart';
 import 'package:online_exam_app/features/auth/api/client/auth_api_client.dart';
 import 'package:online_exam_app/features/auth/data/data_source/remote/auth_remote_data_source.dart';
 import 'package:online_exam_app/features/auth/data/models/forget_password_models/forget_password_request.dart';

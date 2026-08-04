@@ -1,4 +1,6 @@
-class AuthEntity {
+import 'package:equatable/equatable.dart';
+
+class AuthEntity extends Equatable {
   final String username;
   final String firstName;
   final String lastName;
@@ -9,7 +11,7 @@ class AuthEntity {
   final bool isVerified;
   final DateTime createdAt;
 
-  AuthEntity({
+  const AuthEntity({
     required this.username,
     required this.firstName,
     required this.lastName,
@@ -22,8 +24,20 @@ class AuthEntity {
   });
 
   @override
-  String toString() {
-    return 'RegisterEntity(username: $username, firstName: $firstName, lastName: $lastName, email: $email, phone: $phone, id: $id, role: $role, isVerified: $isVerified, createdAt: $createdAt)';
-  }
+  List<Object> get props => [
+    username,
+    firstName,
+    lastName,
+    email,
+    phone,
+    id,
+    role,
+    isVerified,
+    createdAt,
+  ];
 
+  @override
+  String toString() {
+    return 'AuthEntity(username: $username, firstName: $firstName, lastName: $lastName, email: $email, phone: $phone, id: $id, role: $role, isVerified: $isVerified, createdAt: $createdAt)';
+  }
 }

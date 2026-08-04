@@ -9,6 +9,7 @@ abstract class AppTheme {
       scaffoldBackgroundColor: Colors.white,
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
+          disabledBackgroundColor: AppColors.black30,
           backgroundColor: AppColors.blue,
           elevation: 0,
           foregroundColor: Colors.white,

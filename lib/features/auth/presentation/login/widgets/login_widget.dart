@@ -3,25 +3,27 @@ import 'package:cherry_toast/cherry_toast.dart';
 import 'package:cherry_toast/resources/arrays.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:online_exam_app/core/constants/app_strings.dart';
 import 'package:online_exam_app/core/themes/app_%20text_styles/app_text_styles.dart';
 import 'package:online_exam_app/core/themes/app_colors/app_colors.dart';
+import 'package:online_exam_app/core/validator/login_validator.dart';
 import 'package:online_exam_app/features/auth/presentation/login/manager/cubit/login_cubit.dart';
 import 'package:online_exam_app/features/auth/presentation/login/manager/cubit/login_event.dart';
 import 'package:online_exam_app/features/auth/presentation/login/manager/cubit/login_state.dart';
 import 'package:online_exam_app/features/auth/presentation/login/widgets/custom_text_form_field.dart';
 
 class LoginWidget extends StatelessWidget {
-   LoginWidget({super.key});
-   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  LoginWidget({super.key});
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
- final TextEditingController passwordController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     LoginCubit loginCubit = context.read<LoginCubit>();
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login', style: AppTextStyles.medium20),
+        title: Text(AppStrings.login, style: AppTextStyles.medium20),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -38,31 +40,20 @@ class LoginWidget extends StatelessWidget {
               SizedBox(height: 24),
               CustomTextFormField(
                 obscureText: false,
-                labelText: 'Email',
-                hintText: 'Enter your email',
+                labelText: AppStrings.email,
+                hintText: AppStrings.enterYourEmail,
                 validator: (value) {
-                  if (value == null || value.trim().isEmpty) {
-                    return 'Email is required';
-                  }
-                  if (!RegExp(
-                    r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
-                  ).hasMatch(value)) {
-                    return 'Please enter a valid email address';
-                  }
-                  return null;
+                  return LoginValidator.validateEmail(value);
                 },
-                controller:emailController,
+                controller: emailController,
               ),
               SizedBox(height: 24),
               CustomTextFormField(
                 obscureText: true,
-                labelText: 'Password',
-                hintText: 'Enter your password',
+                labelText: AppStrings.password,
+                hintText: AppStrings.enterYourPassword,
                 validator: (value) {
-                  if (value == null || value.trim().isEmpty) {
-                    return 'password is required';
-                  }
-                  return null;
+                  return LoginValidator.validatePassword(value);
                 },
                 controller: passwordController,
               ),
@@ -81,22 +72,25 @@ class LoginWidget extends StatelessWidget {
 
                             value: loginCubit.isChecked,
                             onChanged: (value) {
-                             loginCubit.doEvent(CheckBox(isChecked:  loginCubit.isChecked));
+                              loginCubit.doEvent(
+                                CheckBox(isChecked: loginCubit.isChecked),
+                              );
                               // loginCubit.changeCheckBox(value!);
                             },
                           );
                         },
                       ),
-                      Text('Remember me', style: AppTextStyles.regular13),
+                      Text(
+                        AppStrings.rememberMe,
+                        style: AppTextStyles.regular13,
+                      ),
                     ],
                   ),
                   Spacer(),
                   InkWell(
-                    onTap: () {
-                      
-                    },
+                    onTap: () {},
                     child: Text(
-                      'Forget password?',
+                      AppStrings.forgetPassword,
                       style: AppTextStyles.regular13.copyWith(
                         decoration: TextDecoration.underline,
                         // decorationStyle: TextDecorationStyle.wavy
@@ -116,7 +110,7 @@ class LoginWidget extends StatelessWidget {
                       toastDuration: const Duration(seconds: 2),
                       animationType: AnimationType.fromBottom,
                       title: Text(
-                        "Account created successfully",
+                        AppStrings.accountCreatedSuccessfully,
                         style: TextStyle(color: AppColors.success),
                       ),
                     ).show(context);
@@ -150,17 +144,12 @@ class LoginWidget extends StatelessWidget {
                               );
                             }
                           },
-                    style: TextButton.styleFrom(
-                      backgroundColor: isLoading
-                          ? AppColors.black30
-                          : AppColors.blue,
-                    ),
                     child: isLoading
                         ? const CircularProgressIndicator(
                             color: AppColors.white,
                           )
                         : Text(
-                            'Login',
+                            AppStrings.login,
                             style: AppTextStyles.medium16.copyWith(
                               color: AppColors.white,
                             ),
@@ -173,7 +162,7 @@ class LoginWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Already have an account?  ',
+                    AppStrings.alreadyHaveAccount,
                     style: AppTextStyles.regular16,
                   ),
                   InkWell(
@@ -181,7 +170,7 @@ class LoginWidget extends StatelessWidget {
                       Navigator.pop(context);
                     },
                     child: Text(
-                      'SignUp',
+                      AppStrings.signUp,
                       style: AppTextStyles.regular16.copyWith(
                         color: Colors.blue,
                         decoration: TextDecoration.underline,

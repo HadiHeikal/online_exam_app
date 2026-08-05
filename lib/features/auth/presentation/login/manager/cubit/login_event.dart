@@ -6,8 +6,4 @@ class Authloginevent extends LoginEvent {
   Authloginevent({required this.email, required this.password});
 }
 
-class CheckBox extends LoginEvent {
-  bool isChecked;
-  CheckBox({required this.isChecked});
-
-}
+class CheckBox extends LoginEvent {}

@@ -19,7 +19,6 @@ class LoginWidget extends StatelessWidget {
   final TextEditingController passwordController = TextEditingController();
 
   @override
-
   Widget build(BuildContext context) {
     LoginCubit loginCubit = context.read<LoginCubit>();
     return Scaffold(
@@ -72,10 +71,8 @@ class LoginWidget extends StatelessWidget {
                             ),
 
                             value: loginCubit.isChecked,
-                            onChanged: (value) {
-                              loginCubit.doEvent(
-                                CheckBox(isChecked: loginCubit.isChecked),
-                              );
+                            onChanged: (_) {
+                              loginCubit.doEvent(CheckBox());
                               // loginCubit.changeCheckBox(value!);
                             },
                           );
@@ -102,6 +99,12 @@ class LoginWidget extends StatelessWidget {
               ),
               SizedBox(height: 48),
               BlocConsumer<LoginCubit, AuthState>(
+                listenWhen: (previous, current) {
+                  return previous.baseAuthState.data !=
+                          current.baseAuthState.data ||
+                      previous.baseAuthState.errorMesage !=
+                          current.baseAuthState.errorMesage;
+                },
                 listener: (context, state) {
                   if (state.baseAuthState.data != null) {
                     CherryToast.success(
@@ -111,7 +114,7 @@ class LoginWidget extends StatelessWidget {
                       toastDuration: const Duration(seconds: 2),
                       animationType: AnimationType.fromBottom,
                       title: Text(
-                        AppStrings.loginSuccessfully,
+                        AppStrings.wellcomeToExamApp,
                         style: TextStyle(color: AppColors.success),
                       ),
                     ).show(context);

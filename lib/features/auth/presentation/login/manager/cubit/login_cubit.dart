@@ -1,4 +1,3 @@
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:online_exam_app/config/auth_state/base_auth_state.dart';
@@ -23,12 +22,13 @@ class LoginCubit extends Cubit<AuthState> {
       case Authloginevent():
         _login(email: event.email, password: event.password);
       case CheckBox():
-        _changeCheckBox(_isChecked);
+        _changeCheckBox();
     }
   }
 
-  void _changeCheckBox(bool value) {
-    _isChecked = !value;
+  void _changeCheckBox() {
+    _isChecked = !_isChecked;
+
     emit(
       state.copyWith(
         baseAuthState: state.baseAuthState.copyWith(isBoxChecked: _isChecked),

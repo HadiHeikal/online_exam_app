@@ -17,6 +17,8 @@ class AppStrings {
 
   static const String accountCreatedSuccessfully =
       'Account created successfully';
+  static const String wellcomeToExamApp =
+      'Wellcome to Exam App';
 
   static const String alreadyHaveAccount =
       'Already have an account?  ';

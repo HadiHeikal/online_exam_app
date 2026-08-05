@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:online_exam_app/features/auth/presentation/login/views/login_view.dart';
+import 'package:online_exam_app/features/auth/presentation/register/views/register_view.dart';
 
 class AppRouter {
   MaterialPageRoute<dynamic> generateRoutes(RouteSettings settings) {
@@ -7,7 +8,7 @@ class AppRouter {
       case '/':
         return MaterialPageRoute(builder: (_) => const LoginView());
       case '/register':
-        return MaterialPageRoute(builder: (_) => const Placeholder());
+        return MaterialPageRoute(builder: (_) => const RegisterView());
       case '/forgotPassword':
         return MaterialPageRoute(builder: (_) => const Placeholder());
       case '/verifyEmail':

@@ -24,12 +24,7 @@ class LoginWidget extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(AppStrings.login, style: AppTextStyles.medium20),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(Icons.arrow_back_ios_new_outlined),
-        ),
+        
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -71,10 +66,8 @@ class LoginWidget extends StatelessWidget {
                             ),
 
                             value: loginCubit.isChecked,
-                            onChanged: (value) {
-                              loginCubit.doEvent(
-                                CheckBox(isChecked: loginCubit.isChecked),
-                              );
+                            onChanged: (_) {
+                              loginCubit.doEvent(CheckBox());
                               // loginCubit.changeCheckBox(value!);
                             },
                           );
@@ -101,6 +94,12 @@ class LoginWidget extends StatelessWidget {
               ),
               SizedBox(height: 48),
               BlocConsumer<LoginCubit, AuthState>(
+                listenWhen: (previous, current) {
+                  return previous.baseAuthState.data !=
+                          current.baseAuthState.data ||
+                      previous.baseAuthState.errorMessage !=
+                          current.baseAuthState.errorMessage;
+                },
                 listener: (context, state) {
                   if (state.baseAuthState.data != null) {
                     CherryToast.success(
@@ -110,7 +109,7 @@ class LoginWidget extends StatelessWidget {
                       toastDuration: const Duration(seconds: 2),
                       animationType: AnimationType.fromBottom,
                       title: Text(
-                        AppStrings.loginSuccessfully,
+                        AppStrings.wellcomeToExamApp,
                         style: TextStyle(color: AppColors.success),
                       ),
                     ).show(context);

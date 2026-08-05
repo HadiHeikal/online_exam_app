@@ -24,7 +24,12 @@ class RegisterWidget extends StatelessWidget {
       appBar: AppBar(
         leading: Padding(
           padding: const EdgeInsets.only(left: 16),
-          child: Icon(Icons.arrow_back_ios),
+          child: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back_ios_new_outlined),
+          ),
         ),
 
         title: Text(AppStrings.signUp, style: AppTextStyles.medium20),

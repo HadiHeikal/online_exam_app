@@ -24,12 +24,7 @@ class LoginWidget extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(AppStrings.login, style: AppTextStyles.medium20),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(Icons.arrow_back_ios_new_outlined),
-        ),
+        
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),

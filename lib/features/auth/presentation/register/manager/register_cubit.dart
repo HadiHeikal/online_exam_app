@@ -1,7 +1,7 @@
 import 'dart:developer';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:online_exam_app/config/base_response/base_response.dart';
+import 'package:online_exam_app/config/base/base_response.dart';
 import 'package:online_exam_app/features/auth/domain/entities/params/params/register_params.dart';
 import 'package:online_exam_app/features/auth/domain/entities/register_entity.dart';
 import 'package:online_exam_app/features/auth/domain/use_cases/register_use_case.dart';

@@ -5,8 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_exam_app/core/constants/app_strings.dart';
 import 'package:online_exam_app/core/themes/app_%20text_styles/app_text_styles.dart';
 import 'package:online_exam_app/core/themes/app_colors/app_colors.dart';
-import 'package:online_exam_app/core/validator/app_validator.dart';
-import 'package:online_exam_app/features/auth/presentation/login/views/login_view.dart';
+import 'package:online_exam_app/config/utils/auth_validators.dart';
 import 'package:online_exam_app/features/auth/presentation/register/manager/register_cubit.dart';
 import 'package:online_exam_app/features/auth/presentation/register/manager/register_state.dart';
 import 'package:online_exam_app/features/auth/presentation/register/widgets/custom_text_button.dart';
@@ -52,7 +51,7 @@ class RegisterViewBody extends StatelessWidget {
                 hintText: AppStrings.enterUserName,
                 labelText: AppStrings.userName,
                 validator: (value) {
-                  return AppValidators.validateUsername(value);
+                  return AuthValidators.username(value);
                 },
               ),
               SizedBox(height: 24),
@@ -65,7 +64,7 @@ class RegisterViewBody extends StatelessWidget {
                       labelText: AppStrings.firstName,
                       hintText: AppStrings.enterFirstName,
                       validator: (value) {
-                        return AppValidators.validateFirstName(value);
+                        return AuthValidators.firstName(value);
                       },
                     ),
                   ),
@@ -77,7 +76,7 @@ class RegisterViewBody extends StatelessWidget {
                       labelText: AppStrings.lastName,
                       hintText: AppStrings.enterLastName,
                       validator: (value) {
-                        return AppValidators.validateLastName(value);
+                        return AuthValidators.lastName(value);
                       },
                     ),
                   ),
@@ -90,7 +89,7 @@ class RegisterViewBody extends StatelessWidget {
                 labelText: AppStrings.email,
                 hintText: AppStrings.enterEmail,
                 validator: (value) {
-                  return AppValidators.validateEmail(value);
+                  return AuthValidators.email(value);
                 },
               ),
 
@@ -104,7 +103,7 @@ class RegisterViewBody extends StatelessWidget {
                       labelText: AppStrings.password,
                       hintText: AppStrings.enterPassword,
                       validator: (value) {
-                        return AppValidators.validatePassword(value);
+                        return AuthValidators.password(value);
                       },
                     ),
                   ),
@@ -117,7 +116,7 @@ class RegisterViewBody extends StatelessWidget {
                       labelText: AppStrings.confirmPassword,
                       hintText: AppStrings.confirmPassword,
                       validator: (value) {
-                        return AppValidators.validateConfirmPassword(
+                        return AuthValidators.confirmPassword(
                           value,
                           passwordController.text,
                         );
@@ -133,7 +132,7 @@ class RegisterViewBody extends StatelessWidget {
                 labelText: AppStrings.phoneNumber,
                 hintText: AppStrings.enterPhoneNumber,
                 validator: (value) {
-                  return AppValidators.validatePhone(value);
+                  return AuthValidators.phone(value);
                 },
               ),
               SizedBox(height: 48),
@@ -168,14 +167,7 @@ class RegisterViewBody extends StatelessWidget {
                           style: TextStyle(color: AppColors.success),
                         ),
                       ).show(context);
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return LoginView();
-                          },
-                        ),
-                      );
+                      Navigator.pushNamed(context, '/');
                       break;
                   }
                 },
@@ -205,14 +197,7 @@ class RegisterViewBody extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return LoginView();
-                          },
-                        ),
-                      );
+                      Navigator.pushNamed(context, '/');
                     },
                     child: Text(
                       AppStrings.login,

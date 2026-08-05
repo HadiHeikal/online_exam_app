@@ -110,7 +110,7 @@ class LoginWidget extends StatelessWidget {
                       toastDuration: const Duration(seconds: 2),
                       animationType: AnimationType.fromBottom,
                       title: Text(
-                        AppStrings.accountCreatedSuccessfully,
+                        AppStrings.loginSuccessfully,
                         style: TextStyle(color: AppColors.success),
                       ),
                     ).show(context);

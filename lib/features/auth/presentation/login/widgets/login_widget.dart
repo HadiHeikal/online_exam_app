@@ -102,8 +102,8 @@ class LoginWidget extends StatelessWidget {
                 listenWhen: (previous, current) {
                   return previous.baseAuthState.data !=
                           current.baseAuthState.data ||
-                      previous.baseAuthState.errorMesage !=
-                          current.baseAuthState.errorMesage;
+                      previous.baseAuthState.errorMessage !=
+                          current.baseAuthState.errorMessage;
                 },
                 listener: (context, state) {
                   if (state.baseAuthState.data != null) {

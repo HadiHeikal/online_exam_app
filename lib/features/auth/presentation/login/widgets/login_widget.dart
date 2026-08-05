@@ -19,6 +19,7 @@ class LoginWidget extends StatelessWidget {
   final TextEditingController passwordController = TextEditingController();
 
   @override
+
   Widget build(BuildContext context) {
     LoginCubit loginCubit = context.read<LoginCubit>();
     return Scaffold(

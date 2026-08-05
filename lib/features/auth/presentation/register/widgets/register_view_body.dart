@@ -103,7 +103,7 @@ class RegisterViewBody extends StatelessWidget {
                       labelText: AppStrings.password,
                       hintText: AppStrings.enterPassword,
                       validator: (value) {
-                        return AuthValidators.password(value);
+                        return AuthValidators.strongPassword(value);
                       },
                     ),
                   ),
@@ -167,7 +167,7 @@ class RegisterViewBody extends StatelessWidget {
                           style: TextStyle(color: AppColors.success),
                         ),
                       ).show(context);
-                      Navigator.pushNamed(context, '/');
+                      Navigator.pop(context);
                       break;
                   }
                 },
@@ -195,9 +195,10 @@ class RegisterViewBody extends StatelessWidget {
                     AppStrings.alreadyHaveAccount,
                     style: AppTextStyles.regular16,
                   ),
+                  SizedBox(width: 4),
                   InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, '/');
+                      Navigator.pop(context);
                     },
                     child: Text(
                       AppStrings.login,

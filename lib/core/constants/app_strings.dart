@@ -1,5 +1,9 @@
 class AppStrings {
+  AppStrings._();
+
+  static const String login = 'Login';
   static const String signUp = 'Sign Up';
+  static const String signup = 'Signup';
 
   static const String enterUserName = 'Enter your User name';
   static const String userName = 'User name';
@@ -19,11 +23,13 @@ class AppStrings {
 
   static const String email = 'Email';
   static const String enterEmail = 'Enter your Email';
+  static const String enterYourEmail = 'Enter your email';
   static const String emailRequired = 'Email is required';
   static const String invalidEmail = 'Please enter a valid email address';
 
   static const String password = 'Password';
   static const String enterPassword = 'Enter password';
+  static const String enterYourPassword = 'Enter your password';
   static const String passwordRequired = 'Password is required';
   static const String weakPassword =
       'Password must contain uppercase, lowercase, number and special character';
@@ -37,11 +43,11 @@ class AppStrings {
   static const String invalidEgyptianPhone =
       'Enter a valid Egyptian phone number';
 
+  static const String rememberMe = 'Remember me';
+  static const String forgetPassword = 'Forget password?';
+
   static const String accountCreatedSuccessfully =
       'Account created successfully';
 
-  static const String signup = 'Signup';
-
   static const String alreadyHaveAccount = 'Already have an account?';
-  static const String login = ' Login';
 }

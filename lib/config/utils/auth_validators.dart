@@ -10,6 +10,14 @@ class AuthValidators {
 
   static String? password(String? value) {
     if (value == null || value.isEmpty) return 'Password is required';
+    if (value.length < 8) return 'Password must be at least 8 characters';
+    return null;
+  }
+
+  /// Stricter policy for creating a new password (registration / reset),
+  /// as opposed to [password] which only checks an existing password is present.
+  static String? strongPassword(String? value) {
+    if (value == null || value.isEmpty) return 'Password is required';
     final passwordRegex = RegExp(
       r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$',
     );

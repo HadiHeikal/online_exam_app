@@ -13,7 +13,5 @@ class SuccessResponse<T> extends BaseResponse<T> {
 class ErrorResponse<T> extends BaseResponse<T> {
   Exception error;
   String errorMessage;
-
-  ErrorResponse(this.error)
-    : errorMessage = HandelErrorException().handelErrorexception(error);
+  ErrorResponse(this.error):errorMessage = HandelErrorException().handelErrorexception(error);
 }

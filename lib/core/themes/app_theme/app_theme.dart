@@ -5,8 +5,19 @@ import 'package:online_exam_app/core/themes/app_colors/app_colors.dart';
 abstract class AppTheme {
   static ThemeData get lightAppTheme {
     return ThemeData(
-      
       appBarTheme: AppBarTheme(backgroundColor: Colors.transparent),
+      navigationBarTheme: NavigationBarThemeData(
+        labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>((states) {
+          if (states.contains(WidgetState.selected)) {
+            return AppTextStyles.regular16.copyWith(
+              fontWeight: FontWeight.w600,
+              color:  AppColors.blue,
+            );
+          }
+
+          return AppTextStyles.regular14;
+        }),
+      ),
       scaffoldBackgroundColor: Colors.white,
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
@@ -21,7 +32,6 @@ abstract class AppTheme {
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
-        
         labelStyle: AppTextStyles.regular16.copyWith(color: AppColors.gray),
         hintStyle: AppTextStyles.regular14.copyWith(color: AppColors.black30),
         contentPadding: const EdgeInsets.all(16),

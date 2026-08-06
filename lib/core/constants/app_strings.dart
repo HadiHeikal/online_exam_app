@@ -53,4 +53,25 @@ class AppStrings {
 
   static const String loginSuccessfully = 'Welcome to Exam App';
   static const String alreadyHaveAccount = 'Already have an account?';
+  static const String exploreHomeView = 'Explore';
+  static const String resultHomeView = 'Result';
+  static const String profileHomeView = 'profile';
+
+  static const String survey = 'Survey';
+  static const String browseBySubject = 'Browse by subject';
+  static const String loadingSubjects = 'Loading subjects...';
+  static const String error = 'Error';
+  static const String retry = 'Retry';
+  static const String noSubjectsAvailable = 'No subjects available';
+  static const String tappedOn = 'Tapped on';
+  static const String search = 'Search';
+
+  
+  
+  
+  
+  
+  
 }
+
+

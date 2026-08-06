@@ -3,5 +3,5 @@ abstract class ApiStrings {
   static const String registerEndPoint = 'auth/signup';
   static const String loginEndPoint = 'auth/signin';
 
-  static const String getAllQuestionsOnExamEndPoint = 'questions/';
+  static const String getAllQuestionsOnExamEndPoint = 'questions';
 }

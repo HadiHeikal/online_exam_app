@@ -11,6 +11,4 @@ abstract class AppTextStyles {
     static  TextStyle regular13 = TextStyle(fontSize: 13, fontWeight: FontWeight.w400);
     static  TextStyle regular12 = TextStyle(fontSize: 12, fontWeight: FontWeight.w400);
     static  TextStyle regular10 = TextStyle(fontSize: 10, fontWeight: FontWeight.w400);
-
-
 }

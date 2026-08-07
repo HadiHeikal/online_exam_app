@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:online_exam_app/core/constants/app_strings.dart';
 
-class LoadingCirculeIndecator extends StatelessWidget {
-  const LoadingCirculeIndecator({
+class LoadingCircleIndicator extends StatelessWidget {
+  const LoadingCircleIndicator({
     super.key,
   });
 

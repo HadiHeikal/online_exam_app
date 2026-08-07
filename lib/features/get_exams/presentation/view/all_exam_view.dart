@@ -11,32 +11,38 @@ import 'package:online_exam_app/features/get_exams/presentation/view/widgets/emp
 import 'package:online_exam_app/features/get_exams/presentation/view/widgets/error_custom_widget.dart';
 import 'package:online_exam_app/features/get_exams/presentation/view/widgets/exam_card.dart';
 import 'package:online_exam_app/features/get_exams/presentation/view/widgets/header_exam_name.dart';
-import 'package:online_exam_app/features/get_exams/presentation/view/widgets/loading_indecator.dart';
+import 'package:online_exam_app/features/get_exams/presentation/view/widgets/loading_indicator.dart';
 
 class AllExamView extends StatelessWidget {
   const AllExamView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    ExamsCubit examCubit = getIt.get<ExamsCubit>();
+
 
     return BlocProvider<ExamsCubit>(
       create: (context) =>
-          examCubit..doEvent(GetAllSubjectExams('69d980117c82914570305dc9')),
-      child: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () => Navigator.pop(context),
-          ),
-          title: Text('Subject Name Test', style: AppTextStyles.medium20),
-        ),
-
-        body: BlocBuilder<ExamsCubit, ExamsState>(
-          builder: (context, state) {
-            return _buildBody(context, state, examCubit);
-          },
-        ),
+          getIt.get<ExamsCubit>()..doEvent(GetAllSubjectExams('69d980117c82914570305dc9')),
+      
+      child: Builder(
+        builder: (context) {
+          var cubitExam = context.read<ExamsCubit>();
+          return Scaffold(
+            appBar: AppBar(
+              leading: IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: () => Navigator.pop(context),
+              ),
+              title: Text('Subject Name Test', style: AppTextStyles.medium20),
+            ),
+          
+            body: BlocBuilder<ExamsCubit, ExamsState>(
+              builder: (context, state) {
+                return _buildBody(context, state,cubitExam);
+              },
+            ),
+          );
+        }
       ),
     );
   }
@@ -66,7 +72,7 @@ class AllExamView extends StatelessWidget {
   ) {
     // Loading State
     if (state.examBaseState?.isLoading ?? false) {
-      return LoadingCirculeIndecator();
+      return LoadingCircleIndicator();
     }
 
     // Error State

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:online_exam_app/core/themes/app_%20text_styles/app_text_styles.dart';
+
+import '../../../../../core/themes/app_ text_styles/app_text_styles.dart';
+
 
 class HeaderExamName extends StatelessWidget {
   const HeaderExamName({

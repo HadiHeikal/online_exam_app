@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:online_exam_app/core/themes/app_%20text_styles/app_text_styles.dart';
+
 import 'package:online_exam_app/core/themes/app_colors/app_colors.dart';
 import 'package:online_exam_app/features/get_exams/domain/entities/exam_entity.dart';
+
+import '../../../../../core/themes/app_ text_styles/app_text_styles.dart';
 
 class ExamHeader extends StatelessWidget {
   final ExamEntity exam;
 
   const ExamHeader({
+    super.key,
     required this.exam,
   });
 
@@ -17,7 +20,7 @@ class ExamHeader extends StatelessWidget {
         SizedBox(
           height: 71,
           width: 60,
-          child: Image.asset('assets/images/profile_images/Profit.png'),
+          child:  Image.asset('assets/images/profile_images/Profit.png'),
 
         ),
 

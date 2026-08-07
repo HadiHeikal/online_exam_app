@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:online_exam_app/config/routing/routes.dart';
 import 'package:online_exam_app/features/auth/presentation/login/views/login_view.dart';
 import 'package:online_exam_app/features/auth/presentation/register/views/register_view.dart';
-import 'package:online_exam_app/features/home/presentation/view/subject_home_view.dart';
+import 'package:online_exam_app/features/home/presentation/view/home_view.dart';
 
 class AppRouter {
   MaterialPageRoute<dynamic> generateRoutes(RouteSettings settings) {
     switch (settings.name) {
-      case '/':
+      case Routes.loginView:
         return MaterialPageRoute(builder: (_) => const LoginView());
-      case '/register':
+      case Routes.registerView:
         return MaterialPageRoute(builder: (_) => const RegisterView());
       case '/forgotPassword':
         return MaterialPageRoute(builder: (_) => const Placeholder());
@@ -16,8 +17,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const Placeholder());
       case '/resetPassword':
         return MaterialPageRoute(builder: (_) => const Placeholder());
-      case '/home':
-        return MaterialPageRoute(builder: (_) => const SubjectHomeView());
+      case Routes.homeView:
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
       case '/allExams':
         return MaterialPageRoute(builder: (_) => const Placeholder());
       case '/examInstructions':

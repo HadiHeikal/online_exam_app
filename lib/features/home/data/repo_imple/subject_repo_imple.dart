@@ -1,3 +1,4 @@
+
 import 'package:injectable/injectable.dart';
 import 'package:online_exam_app/config/base/base_response.dart';
 import 'package:online_exam_app/features/home/data/data_sources/remot_data_sopurce/subject_remote_data_source.dart';
@@ -5,9 +6,9 @@ import 'package:online_exam_app/features/home/data/model/subject_dto.dart';
 import 'package:online_exam_app/features/home/domain/entity/subject_entity.dart';
 import 'package:online_exam_app/features/home/domain/repo/subject_repo.dart';
 
-@LazySingleton(as: SubjectRepo)
+@Injectable(as: SubjectRepo)
 class SubjectRepoImple implements SubjectRepo {
-  SubjectRemoteDataSource subjectRemoteDataSource;
+ final SubjectRemoteDataSource subjectRemoteDataSource;
   SubjectRepoImple(this.subjectRemoteDataSource);
 
   @override

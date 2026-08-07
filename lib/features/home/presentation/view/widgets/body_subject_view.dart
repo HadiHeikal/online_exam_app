@@ -12,12 +12,13 @@ import 'package:online_exam_app/features/home/presentation/view/widgets/custom_s
 import '../../../../../core/themes/app_ text_styles/app_text_styles.dart';
 
 class BodySubjectView extends StatelessWidget {
-  const BodySubjectView({super.key, required this.subjectCubit});
+  const BodySubjectView({super.key});
 
-  final SubjectCubit subjectCubit;
+ 
 
   @override
   Widget build(BuildContext context) {
+    SubjectCubit subjectCubit = context.read<SubjectCubit>();
     return CustomScrollView(
       slivers: [
         // Header Section
@@ -32,7 +33,7 @@ class BodySubjectView extends StatelessWidget {
                   style: AppTextStyles.medium20.copyWith(color: AppColors.blue),
                 ),
                 const SizedBox(height: 16),
-                CustomSearchBar(subjectCubit: subjectCubit),
+                CustomSearchBar(),
                 const SizedBox(height: 24),
                 Text(
                   AppStrings.browseBySubject,
@@ -50,7 +51,7 @@ class BodySubjectView extends StatelessWidget {
         BlocBuilder<SubjectCubit, SubjectState>(
           builder: (context, state) {
             // Loading State
-            if (state.subjectBaseState?.isLoading ?? false) {
+            if (state.subjectBaseState.isLoading) {
               return SliverToBoxAdapter(
                 child: Center(
                   child: Column(
@@ -66,7 +67,7 @@ class BodySubjectView extends StatelessWidget {
             }
 
             // Error State
-            if (state.subjectBaseState?.errorMessage.isNotEmpty ?? false) {
+            if (state.subjectBaseState.errorMessage.isNotEmpty ) {
               return SliverToBoxAdapter(
                 child: Center(
                   child: Column(
@@ -86,7 +87,7 @@ class BodySubjectView extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 24),
                         child: Text(
-                          state.subjectBaseState?.errorMessage ?? '',
+                          state.subjectBaseState.errorMessage ,
                           textAlign: TextAlign.center,
 
                           style: AppTextStyles.regular14.copyWith(
@@ -109,7 +110,7 @@ class BodySubjectView extends StatelessWidget {
 
             // Success State
             // final subjects = state.subjectBaseState?.data ?? [];
-            final filtredSubjectList = state.getFilteredSubjects();
+            final filtredSubjectList = state.filtredList;
 
             if (filtredSubjectList.isEmpty) {
               return SliverToBoxAdapter(

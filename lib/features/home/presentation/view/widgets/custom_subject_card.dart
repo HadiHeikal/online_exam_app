@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:online_exam_app/core/themes/app_%20text_styles/app_text_styles.dart';
+
+import '../../../../../core/themes/app_ text_styles/app_text_styles.dart';
 
 class CustomSubjectCard extends StatelessWidget {
   final String name;
@@ -12,7 +13,7 @@ class CustomSubjectCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: GestureDetector(
+      child: InkWell(
         onTap: onTap,
         child: Container(
           // padding: const EdgeInsets.all(16),
@@ -28,8 +29,7 @@ class CustomSubjectCard extends StatelessWidget {
               ),
             ],
           ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24,vertical: 16),
+          child: Padding(padding: const EdgeInsets.symmetric(horizontal: 24,vertical: 16),
             child: Row(
               children: [
                 // Icon/Image

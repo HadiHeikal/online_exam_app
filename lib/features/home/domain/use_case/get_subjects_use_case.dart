@@ -5,7 +5,7 @@ import 'package:online_exam_app/features/home/domain/repo/subject_repo.dart';
 
 @injectable
 class GetSubjectsUseCase {
-  SubjectRepo subjectRepo;
+final  SubjectRepo subjectRepo;
   GetSubjectsUseCase(this.subjectRepo);
 
   Future<BaseResponse<List<SubjectEntity>>> call() async {

@@ -7,10 +7,11 @@ import 'package:online_exam_app/features/home/data/model/subject_responce.dart';
 
 
 
-@LazySingleton(as: SubjectRemoteDataSource)
+@Injectable(as: SubjectRemoteDataSource)
 class SubjectRemoteDataSourceImple implements SubjectRemoteDataSource {
-  SubjectApiClient subjectApiClient;
-  SubjectRemoteDataSourceImple(this.subjectApiClient);
+  
+ final SubjectApiClient subjectApiClient;
+  SubjectRemoteDataSourceImple( this.subjectApiClient);
   @override
   Future<BaseResponse<List<SubjectDto>>> getSubjects() async {
     try {

@@ -17,17 +17,8 @@ class SubjectCubit extends Cubit<SubjectState> {
       case GetSubjectsEvent():
         _getSubjects();
         break;
-      case SelectedTabeEvent():
-        _selectTab(event.index);
-        break;
       case ShowSearchResult():
-        _search(event.query??'');
-        break;
-      case ShowExploreEvent():
-        break;
-      case ShowResultEvent():
-        break;
-      case ShowProfileEvent():
+        _search(event.query ?? '');
         break;
     }
   }
@@ -35,7 +26,7 @@ class SubjectCubit extends Cubit<SubjectState> {
   void _getSubjects() async {
     emit(
       state.copyWith(
-        subjectBaseState: state.subjectBaseState?.copyWith(isLoading: true),
+        subjectBaseState: state.subjectBaseState.copyWith(isLoading: true),
       ),
     );
     BaseResponse<List<SubjectEntity>> subjects = await _getSubjectsUseCase
@@ -44,10 +35,12 @@ class SubjectCubit extends Cubit<SubjectState> {
       case SuccessResponse<List<SubjectEntity>>():
         emit(
           state.copyWith(
-            subjectBaseState: state.subjectBaseState?.copyWith(
+            subjectBaseState: state.subjectBaseState.copyWith(
               isLoading: false,
               data: subjects.data,
+
             ),
+            filtredList: subjects.data
           ),
         );
         break;
@@ -55,7 +48,7 @@ class SubjectCubit extends Cubit<SubjectState> {
       case ErrorResponse<List<SubjectEntity>>():
         emit(
           state.copyWith(
-            subjectBaseState: state.subjectBaseState?.copyWith(
+            subjectBaseState: state.subjectBaseState.copyWith(
               isLoading: false,
               errorMessage: subjects.errorMessage,
             ),
@@ -65,28 +58,18 @@ class SubjectCubit extends Cubit<SubjectState> {
     }
   }
 
-  void _getResult() {}
-  void _getProfile() {}
-
-
-  
-  void _selectTab(int tabIndex) {
-    emit(state.copyWith(tabIndex: tabIndex));
-    switch (tabIndex) {
-      case 0:
-        _getSubjects();
-        break;
-      case 1:
-        _getResult();
-        break;
-      case 2:
-        _getProfile();
-        break;
-    }
-  }
-
   void _search(String queryText) {
-    emit(state.copyWith(queryText: queryText));
+    List<SubjectEntity> dataFiltred = state.subjectBaseState.data ?? [];
+    if (dataFiltred.isEmpty) {
+      return;
+    } else {
+      dataFiltred = dataFiltred
+          .where(
+            (element) =>
+                element.name.toLowerCase().contains(queryText.toLowerCase()),
+          )
+          .toList();
+    }
+    emit(state.copyWith(queryText: queryText, filtredList: dataFiltred));
   }
-
 }

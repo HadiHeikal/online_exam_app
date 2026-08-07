@@ -11,7 +11,7 @@ import 'package:online_exam_app/features/auth/presentation/login/manager/cubit/l
 import 'package:online_exam_app/features/auth/presentation/login/manager/cubit/login_event.dart';
 import 'package:online_exam_app/features/auth/presentation/login/manager/cubit/login_state.dart';
 import 'package:online_exam_app/features/auth/presentation/login/widgets/custom_text_form_field.dart';
-import 'package:online_exam_app/features/home/presentation/view/subject_home_view.dart';
+import 'package:online_exam_app/features/home/presentation/view/home_view.dart';
 
 class LoginWidget extends StatelessWidget {
   LoginWidget({super.key});
@@ -102,11 +102,11 @@ class LoginWidget extends StatelessWidget {
                 },
                 listener: (context, state) {
                   if (state.baseAuthState.data != null ) {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return SubjectHomeView();
+                          return HomeScreen();
                         },
                       ),
                     );

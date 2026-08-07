@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_exam_app/core/constants/app_strings.dart';
 import 'package:online_exam_app/features/home/presentation/manager/cubit/subject_cubit.dart';
 import 'package:online_exam_app/features/home/presentation/manager/cubit/subject_events.dart';
 
 class CustomSearchBar extends StatefulWidget {
-  const CustomSearchBar({super.key, required this.subjectCubit});
-  final SubjectCubit subjectCubit;
+  const CustomSearchBar({super.key});
+
 
   @override
   State<CustomSearchBar> createState() => _CustomSearchBarState();
@@ -28,21 +29,21 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
 
   @override
   Widget build(BuildContext context) {
+    SubjectCubit subjectCubit = context.read<SubjectCubit>();
     return TextField(
       onTapOutside: (event) {
         FocusManager.instance.primaryFocus?.unfocus();
       },
       controller: controller,
       onChanged: (value) {
-        widget.subjectCubit.doEvent(ShowSearchResult(query: value));
-        setState(() {});
+        subjectCubit.doEvent(ShowSearchResult(query: value));
       },
       decoration: InputDecoration(
         suffixIcon: controller.text.isNotEmpty
             ? IconButton(
                 onPressed: () {
                   controller.clear();
-                  widget.subjectCubit.doEvent(ShowSearchResult());
+                  subjectCubit.doEvent(ShowSearchResult());
                 },
                 icon: const Icon(Icons.clear, color: Colors.grey),
               )

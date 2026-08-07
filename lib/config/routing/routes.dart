@@ -1,11 +1,11 @@
 class Routes {
-  static const String loginView = '/loginView';
+  static const String loginView = '/';
   static const String registerView = '/registerView';
   static const String forgotPasswordView = '/forgotPasswordView';
   static const String verifyEmailView = '/verifyEmailView';
   static const String resetPasswordView = '/resetPasswordView';
 
-  static const String homeView = '/';
+  static const String homeView = '/homeView';
   static const String allExamsView = '/allExamsView';
   static const String examInstructionsView = '/examInstructionsView';
   static const String examView = '/examView';

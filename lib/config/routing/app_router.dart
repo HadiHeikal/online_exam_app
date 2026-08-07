@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:online_exam_app/config/routing/routes.dart';
 import 'package:online_exam_app/features/auth/presentation/login/views/login_view.dart';
 import 'package:online_exam_app/features/auth/presentation/register/views/register_view.dart';
+import 'package:online_exam_app/features/get_exams/domain/entities/exam_entity.dart';
+import 'package:online_exam_app/features/get_exams/presentation/view/all_exam_view.dart';
+import 'package:online_exam_app/features/get_exams/presentation/view/exam_instructions.dart';
 
 class AppRouter {
   MaterialPageRoute<dynamic> generateRoutes(RouteSettings settings) {
@@ -18,9 +22,10 @@ class AppRouter {
       case '/home':
         return MaterialPageRoute(builder: (_) => const Placeholder());
       case '/allExams':
-        return MaterialPageRoute(builder: (_) => const Placeholder());
-      case '/examInstructions':
-        return MaterialPageRoute(builder: (_) => const Placeholder());
+        return MaterialPageRoute(builder: (_) => const AllExamView());
+      case Routes.examInstructionsView:
+      final examEntity = settings.arguments as ExamEntity;
+        return MaterialPageRoute(builder: (_) =>  ExamInstructions(examEntity:examEntity ));
       case '/exam':
         return MaterialPageRoute(builder: (_) => const Placeholder());
       case '/examScore':

@@ -11,6 +11,7 @@ import 'package:online_exam_app/features/auth/presentation/login/manager/cubit/l
 import 'package:online_exam_app/features/auth/presentation/login/manager/cubit/login_event.dart';
 import 'package:online_exam_app/features/auth/presentation/login/manager/cubit/login_state.dart';
 import 'package:online_exam_app/features/auth/presentation/login/widgets/custom_text_form_field.dart';
+import 'package:online_exam_app/features/profile/presentation/views/profile_view.dart';
 
 class LoginWidget extends StatelessWidget {
   LoginWidget({super.key});
@@ -24,7 +25,6 @@ class LoginWidget extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(AppStrings.login, style: AppTextStyles.medium20),
-        
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -102,17 +102,23 @@ class LoginWidget extends StatelessWidget {
                 },
                 listener: (context, state) {
                   if (state.baseAuthState.data != null) {
-                    CherryToast.success(
-                      toastPosition: Position.bottom,
-                      animationCurve: Curves.easeInCubic,
-                      animationDuration: const Duration(milliseconds: 500),
-                      toastDuration: const Duration(seconds: 2),
-                      animationType: AnimationType.fromBottom,
-                      title: Text(
-                        AppStrings.wellcomeToExamApp,
-                        style: TextStyle(color: AppColors.success),
-                      ),
-                    ).show(context);
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) {
+                        return EditProfileView();
+                      }),
+                    );
+                    // CherryToast.success(
+                    //   toastPosition: Position.bottom,
+                    //   animationCurve: Curves.easeInCubic,
+                    //   animationDuration: const Duration(milliseconds: 500),
+                    //   toastDuration: const Duration(seconds: 2),
+                    //   animationType: AnimationType.fromBottom,
+                    //   title: Text(
+                    //     AppStrings.wellcomeToExamApp,
+                    //     style: TextStyle(color: AppColors.success),
+                    //   ),
+                    // ).show(context);
                     log(state.baseAuthState.data!.email.toString());
                   } else if (state.baseAuthState.errorMessage.isNotEmpty) {
                     CherryToast.error(

@@ -15,7 +15,10 @@ class AuthInterceptor extends Interceptor {
   ) async {
     final token = await _authLocalDataSource.getToken();
     if (token != null) {
-      options.headers['Authorization'] = 'Bearer $token';
+      // options.headers['Authorization'] = 'Bearer $token';
+      options.headers['token'] = token;
+
+
     }
     handler.next(options);
   }

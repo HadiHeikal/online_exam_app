@@ -22,6 +22,7 @@ abstract class AppTheme {
       ),
       inputDecorationTheme: InputDecorationTheme(
         
+        
         labelStyle: AppTextStyles.regular16.copyWith(color: AppColors.gray),
         hintStyle: AppTextStyles.regular14.copyWith(color: AppColors.black30),
         contentPadding: const EdgeInsets.all(16),

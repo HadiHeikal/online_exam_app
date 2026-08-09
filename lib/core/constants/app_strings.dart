@@ -44,6 +44,8 @@ class AppStrings {
       'Enter a valid Egyptian phone number';
 
   static const String rememberMe = 'Remember me';
+  static const String update = 'Update';
+  static const String change = 'Change';
   static const String forgetPassword = 'Forget password?';
 
   static const String accountCreatedSuccessfully =
@@ -53,4 +55,5 @@ class AppStrings {
 
   static const String loginSuccessfully = 'Welcome to Exam App';
   static const String alreadyHaveAccount = 'Already have an account?';
+  static const String alreadyUpdated = 'Data is updated successfully';
 }

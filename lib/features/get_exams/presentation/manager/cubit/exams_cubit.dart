@@ -6,7 +6,7 @@ import 'package:online_exam_app/features/get_exams/domain/use_cases/get_exams_us
 import 'package:online_exam_app/features/get_exams/presentation/manager/cubit/exams_event.dart';
 import 'package:online_exam_app/features/get_exams/presentation/manager/cubit/exams_state.dart';
 
-@singleton
+@injectable
 class ExamsCubit extends Cubit<ExamsState> {
   final GetExamsUseCase _getExamsUseCase;
   ExamsCubit(this._getExamsUseCase) : super(ExamsState());
@@ -24,7 +24,7 @@ class ExamsCubit extends Cubit<ExamsState> {
   void _getExams({required String subjectId}) async {
     emit(
       state.copyWith(
-        examBaseState: state.examBaseState?.copyWith(isLoading: true),
+        examBaseState: state.examBaseState.copyWith(isLoading: true),
       ),
     );
     BaseResponse<List<ExamEntity>> examEntityList = await _getExamsUseCase.call(
@@ -34,7 +34,7 @@ class ExamsCubit extends Cubit<ExamsState> {
       case SuccessResponse<List<ExamEntity>>():
         emit(
           state.copyWith(
-            examBaseState: state.examBaseState?.copyWith(
+            examBaseState: state.examBaseState.copyWith(
               data: examEntityList.data,
               isLoading: false,
             ),
@@ -44,7 +44,7 @@ class ExamsCubit extends Cubit<ExamsState> {
       case ErrorResponse<List<ExamEntity>>():
         emit(
           state.copyWith(
-            examBaseState: state.examBaseState?.copyWith(
+            examBaseState: state.examBaseState.copyWith(
               errorMessage: examEntityList.errorMessage,
               isLoading: false,
             ),

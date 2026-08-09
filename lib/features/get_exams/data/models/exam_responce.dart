@@ -5,9 +5,9 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'dart:convert';
 
-import 'package:online_exam_app/features/get_exams/data/models/exams_dto.dart';
+import 'package:online_exam_app/features/get_exams/data/models/exam_dto.dart';
 
-part 'exams_responce.g.dart';
+part 'exam_responce.g.dart';
 
 ExamsResponce examsResponceFromJson(String str) => ExamsResponce.fromJson(json.decode(str));
 
@@ -20,7 +20,7 @@ class ExamsResponce {
     @JsonKey(name: "metadata")
     Metadata? metadata;
     @JsonKey(name: "exams")
-    List<ExamsDto>? exams;
+    List<ExamDto>? exams;
 
     ExamsResponce({
         this.message,

@@ -71,17 +71,17 @@ class AllExamView extends StatelessWidget {
     ExamsCubit examCubit,
   ) {
     // Loading State
-    if (state.examBaseState?.isLoading ?? false) {
+    if (state.examBaseState.isLoading ) {
       return LoadingCircleIndicator();
     }
 
     // Error State
-    if (state.examBaseState?.errorMessage.isNotEmpty ?? false) {
-      return ErrorCustomWidget(state: state, examCubit: examCubit);
+    if (state.examBaseState.errorMessage.isNotEmpty) {
+      return ErrorCustomWidget(state: state);
     }
 
     // Success State
-    final exams = state.examBaseState?.data ?? [];
+    final exams = state.examBaseState.data ?? [];
 
     if (exams.isEmpty) {
       return EmptyCustomWidget();

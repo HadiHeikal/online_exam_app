@@ -3,7 +3,7 @@ import 'package:online_exam_app/config/base/base_response.dart';
 import 'package:online_exam_app/features/get_exams/domain/entities/exam_entity.dart';
 import 'package:online_exam_app/features/get_exams/domain/repo/get_exams_repo.dart';
 
-@singleton
+@injectable
 class GetExamsUseCase {
   GetExamsUseCase(this.getExamsRepo);
   final GetExamsRepo getExamsRepo;

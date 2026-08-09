@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_exam_app/core/constants/app_strings.dart';
 import 'package:online_exam_app/core/themes/app_%20text_styles/app_text_styles.dart';
 import 'package:online_exam_app/core/themes/app_colors/app_colors.dart';
@@ -7,13 +8,14 @@ import 'package:online_exam_app/features/get_exams/presentation/manager/cubit/ex
 import 'package:online_exam_app/features/get_exams/presentation/manager/cubit/exams_state.dart';
 class ErrorCustomWidget extends StatelessWidget {
    final ExamsState state;
-  final ExamsCubit examCubit;
+
   const ErrorCustomWidget({
-    super.key, required this.state, required this.examCubit,
+    super.key, required this.state, 
   });
 
   @override
   Widget build(BuildContext context) {
+    final examCubit = context.read<ExamsCubit>();
     return SliverFillRemaining(
       child: Center(
         child: Column(
@@ -29,7 +31,7 @@ class ErrorCustomWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Text(
-                state.examBaseState?.errorMessage ?? '',
+                state.examBaseState.errorMessage,
                 textAlign: TextAlign.center,
                 style: AppTextStyles.regular16.copyWith(
                   color: AppColors.gray,

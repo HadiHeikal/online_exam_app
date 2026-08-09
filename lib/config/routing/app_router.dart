@@ -9,9 +9,9 @@ import 'package:online_exam_app/features/get_exams/presentation/view/exam_instru
 class AppRouter {
   MaterialPageRoute<dynamic> generateRoutes(RouteSettings settings) {
     switch (settings.name) {
-      case '/':
+      case Routes.loginView:
         return MaterialPageRoute(builder: (_) => const LoginView());
-      case '/register':
+      case Routes.registerView:
         return MaterialPageRoute(builder: (_) => const RegisterView());
       case '/forgotPassword':
         return MaterialPageRoute(builder: (_) => const Placeholder());
@@ -19,9 +19,9 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const Placeholder());
       case '/resetPassword':
         return MaterialPageRoute(builder: (_) => const Placeholder());
-      case '/home':
+      case Routes.homeView:
         return MaterialPageRoute(builder: (_) => const Placeholder());
-      case '/allExams':
+      case Routes.allExamsView:
         return MaterialPageRoute(builder: (_) => const AllExamView());
       case Routes.examInstructionsView:
       final examEntity = settings.arguments as ExamEntity;

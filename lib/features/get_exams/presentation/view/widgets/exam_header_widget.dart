@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_exam_app/core/constants/app_strings.dart';
 
 import 'package:online_exam_app/core/themes/app_colors/app_colors.dart';
 import 'package:online_exam_app/features/get_exams/domain/entities/exam_entity.dart';
@@ -20,7 +21,7 @@ class ExamHeader extends StatelessWidget {
         SizedBox(
           height: 71,
           width: 60,
-          child:  Image.asset('assets/images/profile_images/Profit.png'),
+          child:  Image.asset(AppStrings.profileImage),
 
         ),
 
@@ -40,7 +41,7 @@ class ExamHeader extends StatelessWidget {
               Row(
                 children: [
                    Text(
-                    "High level",
+                    AppStrings.highLevelWord,
                     style: AppTextStyles.medium16
                   ),
                   const SizedBox(width: 8),

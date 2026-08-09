@@ -66,4 +66,8 @@ class AppStrings {
   static const String tappedOn = 'Tapped on';
   static const String search = 'Search';
   static const String highLevel = 'HighLevel';
+  static const String noExamsAvailable = 'No exams available';
+  static const String profileImage = 'assets/images/profile_images/Profit.png';
+  static const String questionWord = 'Question';
+  static const String highLevelWord =  'High level';
 }

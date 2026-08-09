@@ -7,14 +7,14 @@ import 'dart:convert';
 
 import 'package:online_exam_app/features/get_exams/domain/entities/exam_entity.dart';
 
-part 'exams_dto.g.dart';
+part 'exam_dto.g.dart';
 
-ExamsDto examsDtoFromJson(String str) => ExamsDto.fromJson(json.decode(str));
+ExamDto examsDtoFromJson(String str) => ExamDto.fromJson(json.decode(str));
 
-String examsDtoToJson(ExamsDto data) => json.encode(data.toJson());
+String examsDtoToJson(ExamDto data) => json.encode(data.toJson());
 
 @JsonSerializable()
-class ExamsDto {
+class ExamDto {
   @JsonKey(name: "_id")
   String? id;
   @JsonKey(name: "title")
@@ -30,7 +30,7 @@ class ExamsDto {
   @JsonKey(name: "createdAt")
   DateTime? createdAt;
 
-  ExamsDto({
+  ExamDto({
     this.id,
     this.title,
     this.duration,
@@ -40,10 +40,10 @@ class ExamsDto {
     this.createdAt,
   });
 
-  factory ExamsDto.fromJson(Map<String, dynamic> json) =>
-      _$ExamsDtoFromJson(json);
+  factory ExamDto.fromJson(Map<String, dynamic> json) =>
+      _$ExamDtoFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ExamsDtoToJson(this);
+  Map<String, dynamic> toJson() => _$ExamDtoToJson(this);
 
   ExamEntity toDomain() => ExamEntity(
     id: id ?? "",

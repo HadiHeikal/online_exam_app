@@ -46,7 +46,7 @@ class ExamCard extends StatelessWidget {
               width: 60,
               height: 71,
               
-              child: Image.asset('assets/images/profile_images/Profit.png'),
+              child: Image.asset(AppStrings.profileImage),
             ),
             const SizedBox(width: 12),
 
@@ -72,7 +72,7 @@ class ExamCard extends StatelessWidget {
 
                   // Questions Count
                   Text(
-                    '$questionsCount Question',
+                    '$questionsCount ${AppStrings.questionWord}',
                     style: AppTextStyles.regular12.copyWith(
                       color: Colors.grey[600],
                     ),

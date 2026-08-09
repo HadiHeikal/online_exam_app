@@ -38,8 +38,8 @@ abstract class ProfileApiClient {
 
   @PATCH(ApiStrings.changePasswordEndPoint)
   Future<ChangePasswordResponse> changePassword({
-    @Field('oldPassword') required String oldPassword,
-    @Field('password') required String password,
-    @Field('rePassword') required String rePassword,
+    @Field(ApiStrings.oldPassword) required String oldPassword,
+    @Field(ApiStrings.password) required String password,
+    @Field(ApiStrings.rePassword) required String rePassword,
   });
 }

@@ -6,6 +6,7 @@ abstract class AppColors {
   static const Color error = Color(0xFFD61F1F);
   static const Color gray = Color(0xFF5E5E5E);
   static const Color white = Color(0xFFFFFFFF);
+  static const Color green = Colors.green;
   static const Color lightBlue = Color(0xFFF2F7FF);
   static const Color lightGreen = Color(0xFFDDF9DD);
   static const Color lightRed = Color(0xFFFFE3E3);

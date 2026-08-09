@@ -10,4 +10,13 @@ abstract class ApiStrings {
   
   // Exams Endpoints
   static const String examsEndPoint = '/exams';
+  
+  // Questions Endpoints
+  static const String oldPassword = 'oldPassword';
+  static const String password = 'password';
+  static const String rePassword = 'rePassword';
+
+
+
+
 }

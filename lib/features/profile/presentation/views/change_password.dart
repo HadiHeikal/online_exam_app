@@ -62,14 +62,14 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: const Text(AppStrings.alreadyUpdated),
-                backgroundColor: Colors.green,
+                backgroundColor: AppColors.green,
               ),
             );
           }
         },
         builder: (context, state) {
           return Scaffold(
-            appBar: AppBar(title: const Text('Change Password')),
+            appBar: AppBar(title:  Text(AppStrings.changePassword)),
             body: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Form(
@@ -80,13 +80,13 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                     ProfileExtracrtMethods.buildTextFormField(
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return 'Current Password is required';
+                          return AppStrings.currentPasswordrequired;
                         }
                         return null;
                       },
                       controller: _currentPasswordController,
-                      label: 'Current Password',
-                      hint: 'Current Password',
+                      label: AppStrings.currentPassword,
+                      hint: AppStrings.currentPassword,
                     ),
                     const SizedBox(height: 24),
                     ProfileExtracrtMethods.buildTextFormField(
@@ -94,8 +94,8 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                         return AuthValidators.strongPassword(value);
                       },
                       controller: _newPasswordController,
-                      label: 'New Password',
-                      hint: 'New Password',
+                      label: AppStrings.newPassword,
+                      hint: AppStrings.newPassword
                     ),
                     const SizedBox(height: 24),
                     ProfileExtracrtMethods.buildTextFormField(
@@ -106,8 +106,8 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                         );
                       },
                       controller: _confirmPasswordController,
-                      label: 'Confirm Password',
-                      hint: 'Confirm Password',
+                      label: AppStrings.confirmPassword,
+                      hint: AppStrings.confirmPassword,
                     ),
                     const SizedBox(height: 54),
                     TextButton(

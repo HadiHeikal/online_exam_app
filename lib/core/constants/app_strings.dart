@@ -54,6 +54,11 @@ class AppStrings {
       'Wellcome to Exam App';
 
   static const String loginSuccessfully = 'Welcome to Exam App';
+  static const String changePassword = 'Change Password';
   static const String alreadyHaveAccount = 'Already have an account?';
   static const String alreadyUpdated = 'Data is updated successfully';
+    static const String currentPasswordrequired = 'Current Password is required';
+    static const String currentPassword = 'Current Password';
+    static const String newPassword = 'New Password';
+
 }

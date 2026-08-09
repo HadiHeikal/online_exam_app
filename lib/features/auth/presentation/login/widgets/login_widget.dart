@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:cherry_toast/cherry_toast.dart';
 import 'package:cherry_toast/resources/arrays.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +10,7 @@ import 'package:online_exam_app/features/auth/presentation/login/manager/cubit/l
 import 'package:online_exam_app/features/auth/presentation/login/manager/cubit/login_event.dart';
 import 'package:online_exam_app/features/auth/presentation/login/manager/cubit/login_state.dart';
 import 'package:online_exam_app/features/auth/presentation/login/widgets/custom_text_form_field.dart';
+import 'package:online_exam_app/features/get_exams/presentation/view/all_exam_view.dart';
 
 class LoginWidget extends StatelessWidget {
   LoginWidget({super.key});
@@ -102,18 +102,21 @@ class LoginWidget extends StatelessWidget {
                 },
                 listener: (context, state) {
                   if (state.baseAuthState.data != null) {
-                    CherryToast.success(
-                      toastPosition: Position.bottom,
-                      animationCurve: Curves.easeInCubic,
-                      animationDuration: const Duration(milliseconds: 500),
-                      toastDuration: const Duration(seconds: 2),
-                      animationType: AnimationType.fromBottom,
-                      title: Text(
-                        AppStrings.wellcomeToExamApp,
-                        style: TextStyle(color: AppColors.success),
-                      ),
-                    ).show(context);
-                    log(state.baseAuthState.data!.email.toString());
+                    // CherryToast.success(
+                    //   toastPosition: Position.bottom,
+                    //   animationCurve: Curves.easeInCubic,
+                    //   animationDuration: const Duration(milliseconds: 500),
+                    //   toastDuration: const Duration(seconds: 2),
+                    //   animationType: AnimationType.fromBottom,
+                    //   title: Text(
+                    //     AppStrings.wellcomeToExamApp,
+                    //     style: TextStyle(color: AppColors.success),
+                    //   ),
+                    // ).show(context);
+                    // log(state.baseAuthState.data!.email.toString());
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return AllExamView();
+                    },));
                   } else if (state.baseAuthState.errorMessage.isNotEmpty) {
                     CherryToast.error(
                       animationType: AnimationType.fromBottom,
